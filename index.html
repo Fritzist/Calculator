@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <title>Calculator</title>
+
+    <script>
+        function appendOperation(operation) {
+            document.getElementById('resultArea').innerHTML += operation;
+        }
+
+        function calculateresult() {
+            let container = document.getElementById('resultArea');
+            let result = eval(container.innerHTML)
+
+            container.innerHTML = result;
+        }
+
+        function deleteLast() {
+            let container = document.getElementById('resultArea');
+            if (container.innerHTML.endsWith(' ')) {
+                container.innerHTML = container.innerHTML.slice(0, -3);
+            } else {
+                container.innerHTML = container.innerHTML.slice(0, -1);
+            }
+        }
+
+        function deleteAll() {
+            let container = document.getElementById('resultArea');
+            if (container.innerHTML.endsWith("")) {
+                container.innerHTML = container.innerHTML.slice(0, calculateresult)
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="resultArea">
+
+</div>
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td onclick="deleteAll()">C</td>
+        <td onclick="deleteLast()">DEL</td>
+    </tr>
+    <tr>
+        <td onclick="appendOperation(7)">7</td>
+        <td onclick="appendOperation(8)">8</td>
+        <td onclick="appendOperation(9)">9</td>
+        <td onclick="appendOperation(' / ')" class="zeichen">/</td>
+    </tr>
+    <tr>
+        <td onclick="appendOperation(4)">4</td>
+        <td onclick="appendOperation(5)">5</td>
+        <td onclick="appendOperation(6)">6</td>
+        <td onclick="appendOperation(' * ')" class="zeichen">x</td>
+    </tr>
+    <tr>
+        <td onclick="appendOperation(1)">1</td>
+        <td onclick="appendOperation(2)">2</td>
+        <td onclick="appendOperation(3)">3</td>
+        <td onclick="appendOperation(' + ')" class="zeichen">+</td>
+    </tr>
+    <tr>
+        <td onclick="appendOperation(0)">0</td>
+        <td onclick="appendOperation('.')">,</td>
+        <td onclick="calculateresult()" class="zeichen">=</td>
+        <td onclick="appendOperation(' - ')" class="zeichen">-</td>
+    </tr>
+</table>
+</body>
+</html>

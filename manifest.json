@@ -1,0 +1,10 @@
+{
+  "theme_color" : "#303030",
+  "background_color" : "#202020",
+  "display" : "fullscreen",
+  "scope" : "/",
+  "start_url" : "/index.html",
+  "name" : "Calculator",
+  "short_name" : "Calculator",
+  "description" : "Calculator"
+}
